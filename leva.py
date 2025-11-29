@@ -1,4 +1,4 @@
-leva = int(input())
+leva = int(input("Enter a value:"))
 
 euro = leva / 1.95583
 
