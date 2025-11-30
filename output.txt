@@ -1,0 +1,4 @@
+This is the input file from exercise - work with files!
+333333333
+555555555
+777777777
