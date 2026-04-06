@@ -6,4 +6,4 @@ class Message(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.username} - {self.date}"
+        return self.username
