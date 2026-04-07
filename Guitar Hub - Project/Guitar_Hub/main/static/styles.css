@@ -9,36 +9,17 @@ header {
     background: #1e1e1e;
     color: white;
     padding: 25px 0;
-    text-align: center;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    text-align: center;
 }
 
 header h1 {
     margin: 0;
     font-size: 32px;
     letter-spacing: 1px;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-}
-
-nav a {
-    color: #ffcc00;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 17px;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    color: white;
-    transform: scale(1.1);
 }
 
 .section {
@@ -107,4 +88,68 @@ footer {
 @keyFrames fadeIn {
     from { opacity: 0; transform: translateY(10px);}
     to { opacity: 1; transform: translateY(0);}
+}
+
+/* 3-column navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Left spacer (empty) */
+.nav-spacer {
+    flex: 1;
+}
+
+/* Centered nav-left */
+.nav-left {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Right side */
+.nav-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+
+/* Style links */
+.nav-left a,
+.nav-right a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+.nav-left a:hover,
+.nav-right a:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Logout button looks like a link */
+.logout-form {
+    margin: 0;
+    padding: 0;
+}
+
+.logout-link {
+    all: unset;
+    color: #ffcc00;
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logout-link:hover {
+    color: white;
+    transform: scale(1.1);
 }

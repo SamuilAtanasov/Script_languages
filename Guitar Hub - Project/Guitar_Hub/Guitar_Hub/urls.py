@@ -5,7 +5,7 @@ URL configuration for Guitar_Hub project.
 from django.contrib import admin
 from django.urls import path, include
 
-from forum.views import (
+from main.views import (
     home_page,
     types_page,
     chords_page,
@@ -21,5 +21,8 @@ urlpatterns = [
     path('chords/', chords_page, name='chords'),
     path('tips/', tips_page, name='tips'),
     path('facts/', facts_page, name='facts'),
-    path('forum/', forum_page, name='forum')
+    path('forum/', forum_page, name='forum'),
+    path('accounts/', include('accounts.urls')),
+
 ]
+

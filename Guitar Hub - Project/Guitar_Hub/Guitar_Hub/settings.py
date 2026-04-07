@@ -19,7 +19,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'forum'
+    'main',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -88,7 +89,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "forum" / "static"
+    BASE_DIR / "main" / "static"
 ]
 
 # Default primary key field type
@@ -96,8 +97,9 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #login & logout
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'forum'
+LOGOUT_REDIRECT_URL = 'home'
+
 
 #enable email backend
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
