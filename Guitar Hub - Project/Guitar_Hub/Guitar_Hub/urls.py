@@ -12,6 +12,9 @@ from main.views import (
     tips_page,
     facts_page,
     forum_page,
+    edit_message,
+    delete_message
+
 )
 
 urlpatterns = [
@@ -22,7 +25,8 @@ urlpatterns = [
     path('tips/', tips_page, name='tips'),
     path('facts/', facts_page, name='facts'),
     path('forum/', forum_page, name='forum'),
+    path('forum/delete/<int:message_id>/', delete_message, name='delete_message'),
+    path('forum/edit/<int:message_id>/', edit_message, name='edit_message'),
     path('accounts/', include('accounts.urls')),
 
 ]
-

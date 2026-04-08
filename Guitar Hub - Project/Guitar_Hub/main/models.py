@@ -18,3 +18,8 @@ class Message(models.Model):
 
     def __str__(self):
         return f"{self.user.username}: {self.text[:30]}"
+
+    class Meta:
+        permissions = [
+            ("can_moderate", "Can moderate forum messages"),
+        ]

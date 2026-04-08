@@ -15,13 +15,35 @@
     {% endif %}
 
     {% for msg in messages %}
-        <p>
-            <strong>{{ msg.user.username }}</strong>: {{ msg.text }} <small>{{ msg.date }}</small>
-            <!-- Reply button -->
-            <button onclick="document.getElementById('reply-{{ msg.id }}').style.display='block'">
-                Reply
-            </button>
-        </p>
+        <div class="message">
+
+            <div class="message-header">
+                <strong>{{ msg.user.username }}</strong>
+                <small class="timestamp">{{ msg.date }}</small>
+            </div>
+
+            <div class="message-text">
+                {{ msg.text }}
+            </div>
+
+            <div class="message-actions">
+                {% if msg.user != user %}
+                    <button class="link-button" onclick="document.getElementById('reply-{{ msg.id }}').style.display='block'">
+                        Reply
+                    </button>
+                {% endif %}
+
+                {% if perms.main.can_moderate or msg.user == user %}
+                    <a href="{% url 'edit_message' msg.id %}" class="edit-btn">Edit</a>
+
+                    <form action="{% url 'delete_message' msg.id %}" method="post" class="delete-form">
+                        {% csrf_token %}
+                        <button type="submit" class="delete-btn">Delete</button>
+                    </form>
+                {% endif %}
+            </div>
+
+        </div>
 
         <!-- Reply form -->
         <form id="reply-{{ msg.id }}" method="post" style="display:none; margin-left:20px;">
@@ -34,11 +56,10 @@
         <!-- Show replies -->
         {% for reply in msg.replies.all %}
             <div class="reply" style="margin-left:40px;">
-                <p><strong>{{ reply.user.username }}</strong>: {{ reply.text }} <small>{{ msg.date }}</small></p>
+                <p><strong>{{ reply.user.username }}</strong>: {{ reply.text }} <small>{{ reply.date }}</small></p>
             </div>
         {% endfor %}
 
-        </p>
         <hr>
     {% empty %}
         <p>No messages yet.</p>
