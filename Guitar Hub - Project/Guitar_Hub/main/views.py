@@ -20,15 +20,21 @@ def facts_page(request):
 def forum_page(request):
     if request.method == "POST":
         if not request.user.is_authenticated:
-            return redirect(f"/accounts/login/?next={request.path}")
+            return redirect("/accounts/login/?next={request.path}")
 
         text = request.POST.get("text")
 
+        parent_id = request.POST.get('parent_id')
+
+        parent = Message.objects.get(id=parent_id) if parent_id else None
+
         Message.objects.create(
-            username=request.user.username,
-            text=text
+            user=request.user,
+            text=text,
+            parent=parent
         )
+
         return redirect('forum')
 
-    messages = Message.objects.all().order_by('-date')
+    messages = Message.objects.filter(parent__isnull=True).order_by('-date')
     return render(request, "main/forum.html", {"messages": messages})

@@ -15,7 +15,7 @@ from main.views import (
 )
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('guitar_hub_superpanel/', admin.site.urls), #hide admin url
     path('', home_page, name='home'),
     path('types/', types_page, name='types'),
     path('chords/', chords_page, name='chords'),
