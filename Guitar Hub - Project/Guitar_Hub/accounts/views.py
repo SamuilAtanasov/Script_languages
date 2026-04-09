@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
 from .forms import CustomUserCreationForm
-from .forms import AvatarForm
+from .forms import ProfileForm
 
 def register(request):
     if request.method == "POST":
@@ -23,12 +25,17 @@ def register(request):
 
 @login_required
 def profile(request):
+    profile = request.user.profile
+
     if request.method == "POST":
-        form = AvatarForm(request.POST, request.FILES, instance=request.user.profile)
-        if form.is_valid():
-            form.save()
+        profile_form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if profile_form.is_valid():
+            profile_form.save()
             return redirect("profile")
     else:
-        form = AvatarForm(instance=request.user.profile)
+        profile_form = ProfileForm(instance=profile)
 
-    return render(request, "accounts/profile.html", {"form": form})
+    return render(request, "accounts/profile.html", {
+        "profile": profile,
+        "profile_form": profile_form,
+    })

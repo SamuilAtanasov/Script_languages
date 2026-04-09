@@ -32,6 +32,7 @@
 
                         <div class="user-dropdown">
                             <a href="{% url 'profile' %}">Profile</a>
+                            <a href="{% url 'password_change' %}">Change Password</a>
                             <form action="{% url 'logout' %}" method="post">
                                 {% csrf_token %}
                                 <button type="submit">Logout</button>

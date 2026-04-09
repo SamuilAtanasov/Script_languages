@@ -273,3 +273,82 @@ footer {
     color: white;
     transform: scale(1.1);
 }
+
+/* FORM CONTAINER SPACING */
+.section form {
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+/* LABELS */
+.section form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #ffcc00;
+}
+
+/* INPUTS + TEXTAREAS */
+.section form input[type="text"],
+.section form input[type="email"],
+.section form input[type="password"],
+.section form input[type="file"],
+.section form textarea,
+.section form select {
+    width: 100%;
+    padding: 10px 12px;
+    background: #1e1e1e;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: #f5f5f5;
+    font-size: 15px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.section form textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+/* INPUT FOCUS */
+.section form input:focus,
+.section form textarea:focus,
+.section form select:focus {
+    outline: none;
+    border-color: #ffcc00;
+    box-shadow: 0 0 4px rgba(255, 204, 0, 0.4);
+}
+
+/* BUTTONS */
+#save-btn {
+    background: #ffcc00;
+    color: #1e1e1e;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+#save-btn:hover {
+    background: #e6b800;
+}
+
+/* ERROR MESSAGES */
+.errorlist {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+.errorlist li {
+    background: #8b0000;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    font-size: 14px;
+}

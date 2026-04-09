@@ -9,6 +9,9 @@ def user_avatar_path(instance, filename):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.ImageField(upload_to=user_avatar_path, default="avatars/default.png")
+    location = models.CharField(max_length=100, blank=True, null=True)
+    favorite_guitar = models.CharField(max_length=100, blank=True, null=True)
+
 
     def __str__(self):
         return self.user.username

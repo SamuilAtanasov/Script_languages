@@ -10,7 +10,7 @@ class CustomUserCreationForm(UserCreationForm):
         model = User
         fields = ("username", "email", "password1", "password2")
 
-class AvatarForm(forms.ModelForm):
+class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ["avatar"]
+        fields = ["avatar", 'location', 'favorite_guitar']
