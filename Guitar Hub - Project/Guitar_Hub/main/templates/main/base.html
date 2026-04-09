@@ -23,16 +23,27 @@
 
             <div class="nav-right">
                 {% if user.is_authenticated %}
-                    <form action="{% url 'logout' %}" method="post" class="logout-form">
-                        {% csrf_token %}
-                        <button type="submit" class="logout-link">Logout {{ user.username }}</button>
-                    </form>
+                    <div class="user-menu">
+                        <div class="user-trigger">
+                            <img src="{{ user.profile.avatar.url }}" class="user-avatar">
+                            <span class="user-name">{{ user.username }}</span>
+                            <span class="arrow">▾</span>
+                        </div>
+
+                        <div class="user-dropdown">
+                            <a href="{% url 'profile' %}">Profile</a>
+                            <form action="{% url 'logout' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit">Logout</button>
+                            </form>
+                        </div>
+                    </div>
                 {% else %}
                     <a href="{% url 'login' %}">Login</a>&nbsp;&nbsp;or&nbsp;&nbsp;<a href="{% url 'register' %}">Register</a>
                 {% endif %}
             </div>
-        </nav>
 
+        </nav>
         <hr>
     </header>
 

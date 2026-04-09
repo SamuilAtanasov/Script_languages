@@ -1,9 +1,10 @@
 """
 URL configuration for Guitar_Hub project.
-
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 from main.views import (
     home_page,
@@ -29,4 +30,5 @@ urlpatterns = [
     path('forum/edit/<int:message_id>/', edit_message, name='edit_message'),
     path('accounts/', include('accounts.urls')),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

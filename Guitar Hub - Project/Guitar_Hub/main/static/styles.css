@@ -134,26 +134,6 @@ footer {
     transform: scale(1.1);
 }
 
-/* Logout button looks like a link */
-.logout-form {
-    margin: 0;
-    padding: 0;
-}
-
-.logout-link {
-    all: unset;
-    color: #ffcc00;
-    font-weight: bold;
-    font-size: 17px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.logout-link:hover {
-    color: white;
-    transform: scale(1.1);
-}
-
 .message {
     background: #f8f8f8;
     padding: 12px;
@@ -224,4 +204,72 @@ footer {
 
 .link-button:hover {
     color: #0056b3;        /* darker blue on hover */
+}
+
+.user-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.user-trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 6px;
+    color: #ffcc00;
+}
+
+.user-trigger:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.user-avatar {
+    width: 28px;
+    height: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* DROPDOWN */
+.user-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;          /* directly under trigger */
+    background: #2a2a2a;
+    border-radius: 6px;
+    min-width: 150px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    z-index: 999;
+}
+
+/* KEEP OPEN WHILE HOVERING ANYWHERE IN user-menu */
+.user-menu:hover .user-dropdown {
+    display: block;
+}
+
+.user-dropdown a,
+.user-dropdown button {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    text-align: left;
+    background: none;
+    border: none;
+    color: #ffcc00;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.user-dropdown a:hover,
+.user-dropdown button:hover {
+    color: white;
+    transform: scale(1.1);
 }

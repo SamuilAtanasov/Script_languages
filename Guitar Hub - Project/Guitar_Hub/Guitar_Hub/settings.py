@@ -104,3 +104,7 @@ LOGOUT_REDIRECT_URL = 'home'
 
 #enable email backend
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+#profile & avatar
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"

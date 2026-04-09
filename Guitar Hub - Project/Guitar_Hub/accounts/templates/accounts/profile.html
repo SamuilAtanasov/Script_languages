@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<section class="section">
+
+    <h2>Your Profile</h2>
+
+    <img src="{{ user.profile.avatar.url }}" width="150" height="150" style="border-radius:50%;">
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Avatar</button>
+    </form>
+</section>
+{% endblock %}
