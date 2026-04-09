@@ -28,7 +28,7 @@
                         <button type="submit" class="logout-link">Logout {{ user.username }}</button>
                     </form>
                 {% else %}
-                    <a href="{% url 'login' %}">Login</a>
+                    <a href="{% url 'login' %}">Login</a>&nbsp;&nbsp;or&nbsp;&nbsp;<a href="{% url 'register' %}">Register</a>
                 {% endif %}
             </div>
         </nav>

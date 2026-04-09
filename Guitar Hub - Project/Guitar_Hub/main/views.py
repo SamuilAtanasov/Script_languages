@@ -41,7 +41,6 @@ def forum_page(request):
     return render(request, "main/forum.html", {"messages": messages})
 
 
-
 @login_required
 def delete_message(request, message_id):
     msg = get_object_or_404(Message, id=message_id)
