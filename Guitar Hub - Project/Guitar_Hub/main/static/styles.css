@@ -381,8 +381,8 @@ footer {
 
 .float-img-left {
     float: left;
-    width: 40%;
-    max-width: 350px;
+    width: 35%;
+    max-width: 325px;
     margin: 10px 20px 20px 0;
     border-radius: 12px;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
@@ -390,8 +390,8 @@ footer {
 
 .float-img-right {
     float: right;
-    width: 40%;
-    max-width: 350px;
+    width: 35%;
+    max-width: 325px;
     margin: 10px 0 20px 20px;
     border-radius: 12px;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
